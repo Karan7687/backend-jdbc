@@ -9,16 +9,20 @@ public class StatementExample {
         String url = "jdbc:postgresql://localhost:5432/demo";
         String username = "postgres";
         String password = "123321";
-        String sql = "select sname from student where sid=1";
+        String sql = "select * from student";
         try {
 
             Connection con = DriverManager.getConnection(url, username, password);
             System.out.println("Connected to the database");
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
-            rs.next();
-            String name = rs.getString("sname");
-            System.out.println(name);
+            while (rs.next()) {
+                System.out.print(rs.getInt(1) + " - ");
+                System.out.print(rs.getInt(2) + " - ");
+                System.out.println(rs.getString(3));
+
+            }
+
 
         } catch (Exception e) {
             e.printStackTrace();
