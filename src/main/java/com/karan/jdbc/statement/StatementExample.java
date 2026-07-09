@@ -9,7 +9,7 @@ public class StatementExample {
         String url = "jdbc:postgresql://localhost:5432/demo";
         String username = "postgres";
         String password = "123321";
-        String sql = "update student set sname= 'MAX' where sid=1";
+        String sql = "delete from student where sid=2";
         try {
 
             Connection con = DriverManager.getConnection(url, username, password);
